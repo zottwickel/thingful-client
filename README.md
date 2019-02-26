@@ -1,5 +1,6 @@
-# Blogful client
+# Thingful (Client)
 
 ## Scripts
 
-Start the application `npm start`
+- Install dependencies: `npm install`
+- Start the application for development: `npm start`
