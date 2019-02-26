@@ -9,36 +9,32 @@
   margin: 0;
 }
 
-.Header h1 a {
-  text-decoration: none;
-}
-
 .Header a {
   color: #444;
+  text-decoration: none;
 }
 
 .Header__not-logged-in {
   display: flex;
-  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
 }
 
-.Header__not-logged-in .Hyph {
-  display: none;
+.Header__not-logged-in a:last-child {
+  background: rgb(255, 121, 121);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 15px;
+  margin-left: 10px;
 }
 
 @media screen and (min-width: 450px) {
   .Header {
     align-items: baseline;
   }
+
   .Header h1 {
     font-size: 22pt;
-  }
-
-  .Header__not-logged-in {
-    flex-direction: row;
-  }
-
-  .Header__not-logged-in .Hyph {
-    display: initial;
   }
 }

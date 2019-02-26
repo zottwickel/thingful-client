@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Hyph } from '../Utils/Utils'
 import TokenService from '../../services/token-service'
 import './Header.css'
 
@@ -25,13 +24,12 @@ export default class Header extends Component {
     return (
       <div className='Header__not-logged-in'>
         <Link
-          to='/register'>
-          Register
-        </Link>
-        <Hyph />
-        <Link
           to='/login'>
           Log in
+        </Link>
+        <Link
+          to='/register'>
+          Register
         </Link>
       </div>
     )
@@ -42,9 +40,9 @@ export default class Header extends Component {
       <nav className='Header'>
         <h1>
           <Link to='/'>
-            <FontAwesomeIcon className='green' icon='frog' />
+            <FontAwesomeIcon className='blue' icon='gift' />
             {' '}
-            Blogful Client
+            Thingful
           </Link>
         </h1>
         {TokenService.hasAuthToken()
