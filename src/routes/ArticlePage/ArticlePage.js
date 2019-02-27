@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ArticleContext, { nullArticle } from '../../contexts/ArticleContext'
 import ArticleApiService from '../../services/article-api-service'
 import { NiceDate, Hyph, Section } from '../../components/Utils/Utils'
+import { ArticleStarRating } from '../../components/ArticleStarRating/ArticleStarRating'
 import StyleIcon from '../../components/StyleIcon/StyleIcon'
 import CommentForm from '../../components/CommentForm/CommentForm'
 import './ArticlePage.css'
@@ -32,16 +33,8 @@ export default class ArticlePage extends Component {
   renderArticle() {
     const { article, comments } = this.context
     return <>
+      <div className='ArticlePage__image' style={{backgroundImage: 'url(http://placehold.it/500x500)'}} />
       <h2>{article.title}</h2>
-      <p>
-        <ArticleStyle article={article} />
-        {article.author.id && <>
-          <Hyph />
-          <ArticleAuthor article={article} />
-        </>}
-        <Hyph />
-        <NiceDate date={article.date_created} />
-      </p>
       <ArticleContent article={article} />
       <ArticleComments comments={comments} />
       <CommentForm />
@@ -108,6 +101,8 @@ function ArticleComments({ comments = [] }) {
             {comment.text}
           </p>
           <p className='ArticlePage__comment-user'>
+            <ArticleStarRating rating={ 5 } />
+            <Hyph />
             {comment.user.full_name}
           </p>
         </li>
