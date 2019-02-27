@@ -1,18 +1,18 @@
 import React, { Component } from 'react'
-import ArticleContext from '../../contexts/ArticleContext'
-import ArticleApiService from '../../services/article-api-service'
+import ThingContext from '../../contexts/ThingContext'
+import ThingApiService from '../../services/thing-api-service'
 import { Button, Textarea } from '../Utils/Utils'
-import './CommentForm.css'
+import './ReviewForm.css'
 
-export default class CommentForm extends Component {
-  static contextType = ArticleContext
+export default class ReviewForm extends Component {
+  static contextType = ThingContext
 
   handleSubmit = ev => {
     ev.preventDefault()
-    const { article } = this.context
+    const { thing } = this.context
     const { text } = ev.target
-    ArticleApiService.postComment(article.id, text.value)
-      .then(this.context.addComment)
+    ThingApiService.postReview(thing.id, text.value)
+      .then(this.context.addReview)
       .then(() => {
         text.value = ''
       })
@@ -22,22 +22,22 @@ export default class CommentForm extends Component {
   render() {
     return (
       <form
-        className='CommentForm'
+        className='ReviewForm'
         onSubmit={this.handleSubmit}
       >
         <div className='text'>
           <Textarea
             required
-            aria-label='Type a comment...'
+            aria-label='Type a review...'
             name='text'
             id='text'
             cols='30'
             rows='3'
-            placeholder='Type a comment..'>
+            placeholder='Type a review..'>
           </Textarea>
         </div>
         <Button type='submit'>
-          Post comment
+          Post review
         </Button>
       </form>
     )

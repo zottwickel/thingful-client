@@ -1,4 +1,4 @@
-.ArticleListItem {
+.ThingListItem {
   background: none;
   display: flex;
   flex-direction: column;
@@ -11,16 +11,16 @@
   border-radius: 10px;
 }
 
-.ArticleListItem:hover {
+.ThingListItem:hover {
   cursor: pointer;
 }
 
-.ArticleListItem,
-.ArticleListItem:visited {
+.ThingListItem,
+.ThingListItem:visited {
   color: #555;
 }
 
-.ArticleListItem__image {
+.ThingListItem__image {
   height: 250px;
   width: 275px;
   border-radius: 10px 10px 0 0;
@@ -28,7 +28,7 @@
   background-position: 50% 50%;
 }
 
-.ArticleListItem__details {
+.ThingListItem__details {
   padding: 10px;
   display: flex;
   flex: 1;
@@ -37,11 +37,11 @@
   width: 275px;
 }
 
-.ArticleListItem__details h2 {
+.ThingListItem__details h2 {
   margin: 0;
 }
 
-.ArticleListItem__details .ArticleStarRating {
+.ThingListItem__details .ThingStarRating {
   padding: 5px 0;
   text-align: center;
   opacity: 0.85;

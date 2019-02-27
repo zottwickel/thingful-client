@@ -3,8 +3,8 @@ import { Route, Switch } from 'react-router-dom'
 import Header from '../Header/Header'
 // import PrivateRoute from '../Utils/PrivateRoute'
 // import PublicOnlyRoute from '../Utils/PublicOnlyRoute'
-import ArticleListPage from '../../routes/ArticleListPage/ArticleListPage'
-import ArticlePage from '../../routes/ArticlePage/ArticlePage'
+import ThingListPage from '../../routes/ThingListPage/ThingListPage'
+import ThingPage from '../../routes/ThingPage/ThingPage'
 import LoginPage from '../../routes/LoginPage/LoginPage'
 import RegistrationPage from '../../routes/RegistrationPage/RegistrationPage'
 import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage'
@@ -30,7 +30,7 @@ class App extends Component {
             <Route
               exact
               path={'/'}
-              component={ArticleListPage}
+              component={ThingListPage}
             />
             <Route
               path={'/login'}
@@ -41,8 +41,8 @@ class App extends Component {
               component={RegistrationPage}
             />
             <Route
-              path={'/article/:articleId'}
-              component={ArticlePage}
+              path={'/thing/:thingId'}
+              component={ThingPage}
             />
             <Route
               component={NotFoundPage}

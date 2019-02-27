@@ -1,8 +1,8 @@
 import config from '../config'
 
-const ArticleApiService = {
-  getArticles() {
-    return fetch(`${config.API_ENDPOINT}/articles`, {
+const ThingApiService = {
+  getThings() {
+    return fetch(`${config.API_ENDPOINT}/things`, {
       headers: {
       },
     })
@@ -12,8 +12,8 @@ const ArticleApiService = {
           : res.json()
       )
   },
-  getArticle(articleId) {
-    return fetch(`${config.API_ENDPOINT}/articles/${articleId}`, {
+  getThing(thingId) {
+    return fetch(`${config.API_ENDPOINT}/things/${thingId}`, {
       headers: {
       },
     })
@@ -23,8 +23,8 @@ const ArticleApiService = {
           : res.json()
       )
   },
-  getArticleComments(articleId) {
-    return fetch(`${config.API_ENDPOINT}/articles/${articleId}/comments`, {
+  getThingReviews(thingId) {
+    return fetch(`${config.API_ENDPOINT}/things/${thingId}/reviews`, {
       headers: {
       },
     })
@@ -34,14 +34,14 @@ const ArticleApiService = {
           : res.json()
       )
   },
-  postComment(articleId, text) {
-    return fetch(`${config.API_ENDPOINT}/comments`, {
+  postReview(thingId, text) {
+    return fetch(`${config.API_ENDPOINT}/reviews`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
       },
       body: JSON.stringify({
-        article_id: articleId,
+        thing_id: thingId,
         text,
       }),
     })
@@ -53,4 +53,4 @@ const ArticleApiService = {
   }
 }
 
-export default ArticleApiService
+export default ThingApiService
