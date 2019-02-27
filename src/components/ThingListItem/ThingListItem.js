@@ -18,10 +18,26 @@ export default class ThingListItem extends Component {
             <p className='ThingListItem__description'>{truncate(thing.content)}</p>
           </div>
 
-          <ThingStarRating rating={thing.average_review_rating} />
+          <div className='ThingListItem__reviews'>
+            <ThingStarRating rating={thing.average_review_rating} />
+            <span id='ThingListItem__review-count'>{readableReviewCount(thing.number_of_reviews)}</span>
+          </div>
         </div>
       </Link>
     )
+  }
+}
+
+function readableReviewCount(number) {
+  switch(number) {
+    case 0:
+      return 'no reviews yet'
+
+    case 1:
+      return `based on 1 review`
+
+    default:
+      return `based on ${number} reviews`
   }
 }
 
