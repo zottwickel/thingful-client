@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import ArticleContext, { nullArticle } from '../../contexts/ArticleContext'
+import ArticleContext from '../../contexts/ArticleContext'
 import ArticleApiService from '../../services/article-api-service'
-import { NiceDate, Hyph, Section } from '../../components/Utils/Utils'
+import { Hyph, Section } from '../../components/Utils/Utils'
 import { ArticleStarRating } from '../../components/ArticleStarRating/ArticleStarRating'
-import StyleIcon from '../../components/StyleIcon/StyleIcon'
 import CommentForm from '../../components/CommentForm/CommentForm'
 import './ArticlePage.css'
 
@@ -33,7 +32,7 @@ export default class ArticlePage extends Component {
   renderArticle() {
     const { article, comments } = this.context
     return <>
-      <div className='ArticlePage__image' style={{backgroundImage: 'url(http://placehold.it/500x500)'}} />
+      <div className='ArticlePage__image' style={{backgroundImage: `url(${article.image})`}} />
       <h2>{article.title}</h2>
       <ArticleContent article={article} />
       <ArticleComments comments={comments} />
@@ -59,24 +58,6 @@ export default class ArticlePage extends Component {
       </Section>
     )
   }
-}
-
-function ArticleStyle({ article }) {
-  return (
-    <span className='ArticlePage__style'>
-      <StyleIcon style={article.style} />
-      {' '}
-      {article.style}
-    </span>
-  )
-}
-
-function ArticleAuthor({ article = nullArticle }) {
-  return (
-    <span className='ArticlePage__author'>
-      {article.author.full_name}
-    </span>
-  )
 }
 
 function ArticleContent({ article }) {

@@ -1,4 +1,4 @@
-# Thingful (Client)
+# Thingful Client
 
 ## Scripts
 
