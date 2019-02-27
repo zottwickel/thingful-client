@@ -12,6 +12,10 @@
   padding: 0;
 }
 
+.ThingPage__content {
+  margin-bottom: 30px;
+}
+
 .ThingPage__review {
   position: relative;
 }
