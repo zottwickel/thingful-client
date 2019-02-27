@@ -6,6 +6,7 @@ import './ThingListItem.css'
 export default class ThingListItem extends Component {
   render() {
     const { thing } = this.props
+    console.log(thing)
 
     return (
       <Link to={`/thing/${thing.id}`} className='ThingListItem'>
@@ -17,7 +18,7 @@ export default class ThingListItem extends Component {
             <p className='ThingListItem__description'>{truncate(thing.content)}</p>
           </div>
 
-          <ThingStarRating rating={ 5 } />
+          <ThingStarRating rating={thing.average_review_rating} />
         </div>
       </Link>
     )
