@@ -36,7 +36,7 @@ export default class Header extends Component {
   }
 
   render() {
-    return (
+    return <>
       <nav className='Header'>
         <h1>
           <Link to='/'>
@@ -45,10 +45,13 @@ export default class Header extends Component {
             Thingful
           </Link>
         </h1>
+        <span className='Header__tagline--wide'>Rate all the things.</span>
         {TokenService.hasAuthToken()
           ? this.renderLogoutLink()
           : this.renderLoginLink()}
       </nav>
-    )
+
+      <span className='Header__tagline--narrow'>Rate all the things.</span>
+    </>
   }
 }

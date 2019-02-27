@@ -6,7 +6,6 @@ import './ThingListItem.css'
 export default class ThingListItem extends Component {
   render() {
     const { thing } = this.props
-    console.log(thing)
 
     return (
       <Link to={`/thing/${thing.id}`} className='ThingListItem'>
