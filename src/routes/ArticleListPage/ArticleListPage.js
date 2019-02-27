@@ -3,6 +3,7 @@ import ArticleListContext from '../../contexts/ArticleListContext'
 import ArticleApiService from '../../services/article-api-service'
 import { Section } from '../../components/Utils/Utils'
 import ArticleListItem from '../../components/ArticleListItem/ArticleListItem'
+import './ArticleListPage.css'
 
 export default class ArticleListPage extends Component {
   static contextType = ArticleListContext

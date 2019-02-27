@@ -10,63 +10,24 @@ export default class ArticleListItem extends Component {
     const { article } = this.props
     return (
       <Link to={`/article/${article.id}`} className='ArticleListItem'>
-        <header className='ArticleListItem__header'>
-          <h2 className='ArticleListItem__heading'>
-            {article.title}
-          </h2>
-          <ArticleDate article={article} />
-        </header>
-        <footer className='ArticleListItem__footer'>
-          <ArticleStyle article={article} />
-          {article.author.id && <>
-            <Hyph />
-            <ArticleAuthor article={article} />
-          </>}
-          <ArticleCommentCount article={article} />
-        </footer>
+        <div className='ArticleListItem__image' style={{backgroundImage: 'url(http://placehold.it/500x500)'}} />
+
+        <div className='ArticleListItem__details'>
+          <h2 className='ArticleListItem__heading'>{article.title}</h2>
+          <p className='ArticleListItem__description'>Description</p>
+          <ArticleStarRating rating={ 5 } />
+        </div>
       </Link>
     )
   }
 }
 
-function ArticleStyle({ article }) {
-  return (
-    <span className='ArticleListItem__style'>
-      <StyleIcon style={article.style} />
-      {' '}
-      {article.style}
-    </span>
-  )
-}
-
-function ArticleDate({ article }) {
-  return (
-    <span className='ArticleListItem__date'>
-      <NiceDate
-        date={article.date_created}
-      />
-    </span>
-  )
-}
-
-function ArticleAuthor({ article }) {
-  return (
-    <span className='ArticleListItem__author'>
-      {article.author.full_name}
-    </span>
-  )
-}
-
-function ArticleCommentCount({ article }) {
-  return (
-    <span
-      className='ArticleListItem__comment-count fa-layers fa-fw'
-    >
-      <FontAwesomeIcon size='lg' icon='comment' />
-      <span
-        className='fa-layers-text fa-inverse'>
-        {article.number_of_comments}
-      </span>
-    </span>
-  )
+function ArticleStarRating(rating) {
+  return <div className='ArticleStarRating'>
+    <FontAwesomeIcon className='blue' icon={ [ 'fas', 'star' ] } />
+    <FontAwesomeIcon className='blue' icon={ [ 'fas', 'star' ] } />
+    <FontAwesomeIcon className='blue' icon={ [ 'fas', 'star' ] } />
+    <FontAwesomeIcon className='blue' icon={ [ 'fas', 'star' ] } />
+    <FontAwesomeIcon className='blue' icon={ [ 'far', 'star' ] } />
+  </div>
 }
