@@ -34,7 +34,7 @@ const ThingApiService = {
           : res.json()
       )
   },
-  postReview(thingId, text) {
+  postReview(thingId, text, rating) {
     return fetch(`${config.API_ENDPOINT}/reviews`, {
       method: 'POST',
       headers: {
@@ -42,6 +42,7 @@ const ThingApiService = {
       },
       body: JSON.stringify({
         thing_id: thingId,
+        rating,
         text,
       }),
     })

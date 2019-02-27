@@ -82,7 +82,7 @@ function ThingReviews({ reviews = [] }) {
             {review.text}
           </p>
           <p className='ThingPage__review-user'>
-            <ThingStarRating rating={ 5 } />
+            <ThingStarRating rating={review.rating} />
             <Hyph />
             {review.user.full_name}
           </p>

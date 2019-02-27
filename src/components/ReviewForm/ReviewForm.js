@@ -10,8 +10,9 @@ export default class ReviewForm extends Component {
   handleSubmit = ev => {
     ev.preventDefault()
     const { thing } = this.context
-    const { text } = ev.target
-    ThingApiService.postReview(thing.id, text.value)
+    const { text, rating } = ev.target
+
+    ThingApiService.postReview(thing.id, text.value, Number(rating.value))
       .then(this.context.addReview)
       .then(() => {
         text.value = ''
@@ -36,6 +37,23 @@ export default class ReviewForm extends Component {
             placeholder='Type a review..'>
           </Textarea>
         </div>
+
+        <div className='select'>
+          <label htmlFor='rating'>Rate this thing!</label>
+          <select
+            required
+            aria-label='Rate this thing!'
+            name='rating'
+            id='rating'
+          >
+            <option value='1'>1</option>
+            <option value='2'>2</option>
+            <option value='3'>3</option>
+            <option value='4'>4</option>
+            <option value='5'>5</option>
+          </select>
+        </div>
+
         <Button type='submit'>
           Post review
         </Button>
